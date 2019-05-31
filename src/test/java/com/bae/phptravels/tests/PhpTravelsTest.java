@@ -22,7 +22,7 @@ public class PhpTravelsTest {
 	}
 
 	@After
-	public void teardonw() {
+	public void teardown() {
 		driver.quit();
 	}
 
@@ -55,8 +55,11 @@ public class PhpTravelsTest {
 		checkElement.click();
 		checkElement = driver.findElement(By.xpath("//*[@id=\"hotels\"]/form/div[5]/button"));
 		checkElement.click();
-		checkElement = driver.findElement(By.xpath("//*[@id=\"body-section\"]/div[5]/div/div[3]/div[2]/ul/li[4]/a"));
-		checkElement.click();
+		driver.get("https://www.phptravels.net/hotels/listing/2");
+		// checkElement =
+		// driver.findElement(By.xpath("//*[@id=\"body-section\"]/div[5]/div/div[3]/div[2]/ul/li[3]/a"));
+		// checkElement.click();
+
 		checkElement = driver.findElement(By.xpath(
 				"//*[@id=\"body-section\"]/div[5]/div/div[3]/div[1]/div/table/tbody/tr[3]/td/div[2]/div/h4/a/b"));
 		checkElement.click();
@@ -83,8 +86,9 @@ public class PhpTravelsTest {
 		action.moveToElement(checkElement).doubleClick().perform();
 		action.moveToElement(checkElement).sendKeys("3").perform();
 
-		// checkElement = driver.findElement(By.xpath("//*[@id=\"roomsCheckbox\"]"));
-		// checkElement.click();
+		checkElement = driver.findElement(
+				By.xpath("//*[@id=\"ROOMS\"]/div/table/tbody/tr[2]/td/div[2]/div[2]/div/div[3]/div/label/div"));
+		checkElement.click();
 
 		Thread.sleep(3000);
 	}
